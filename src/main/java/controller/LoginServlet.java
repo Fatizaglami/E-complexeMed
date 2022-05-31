@@ -73,10 +73,14 @@ public class LoginServlet extends HttpServlet {
                 int id = loginbean.getId();
                 String nom = loginbean.getNom();
                 String prenom = loginbean.getPrenom();
+                String email = loginbean.getEmail();
+                String tel = loginbean.getTel();
                 session.setAttribute("id",id);
                 session.setAttribute("nom",nom);
                 session.setAttribute("prenom",prenom);
                 session.setAttribute("username", username);
+                session.setAttribute("email", email);
+                session.setAttribute("tel", tel);
 
                 if(loginbean.getType().equals("Admin")) {
                     request.getRequestDispatcher("/Vue/home.jsp").forward(request, response);
@@ -85,7 +89,7 @@ public class LoginServlet extends HttpServlet {
                     this.getServletContext().getRequestDispatcher("/espacePsy.jsp").forward(request, response);
 
                 }else {
-                    request.getRequestDispatcher("/espacePsy.jsp").forward(request, response);
+                    request.getRequestDispatcher("/Vue/HomePatient.jsp").forward(request, response);
 
                 }
             }

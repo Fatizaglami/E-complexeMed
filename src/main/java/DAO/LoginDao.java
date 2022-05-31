@@ -7,14 +7,14 @@ public class LoginDao {
     public boolean validate(LoginBean loginbean) throws ClassNotFoundException {
         boolean status = false;
 
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/complexemed", "root", "");
             String tablename = null;
             //Type d'utilisateur
             if(loginbean.getType().equals("Medecin"))
-                tablename = "medcin";
+                tablename = "doctor";
             if(loginbean.getType().equals("Patient"))
                 tablename = "patient";
             if(loginbean.getType().equals("Admin"))
@@ -65,6 +65,8 @@ public class LoginDao {
                 loginbean.setId(resultat.getInt("id"));
                 loginbean.setNom(resultat.getString("nom"));
                 loginbean.setPrenom(resultat.getString("prenom"));
+                loginbean.setEmail(resultat.getString("email"));
+                loginbean.setTel(resultat.getString("tel"));
             }
         } catch (SQLException e) {
             // process sql exception

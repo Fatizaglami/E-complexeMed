@@ -7,6 +7,8 @@ public class LoginBean {
     private String type="";
     private String nom="null";
     private String prenom="null";
+    private String email ="";
+    private String tel ="";
 
     public String getUsername() {
         return username;
@@ -14,7 +16,19 @@ public class LoginBean {
     public void setUsername(String username) {
         this.username = username;
     }
-    public String getPassword() {
+    public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+	public String getPassword() {
         return password;
     }
     public void setPassword(String password) {
