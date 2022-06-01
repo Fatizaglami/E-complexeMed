@@ -31,4 +31,14 @@
     <servlet-name>InscriptionServlet</servlet-name>
     <url-pattern>/Vue/InscriptionServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MakeAppoiServlet</display-name>
+    <servlet-name>MakeAppoiServlet</servlet-name>
+    <servlet-class>controller.MakeAppoiServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MakeAppoiServlet</servlet-name>
+    <url-pattern>/Vue/Appointement</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -101,6 +101,8 @@
  transform :scale(1.1);
  opacity:1;
  }
+ .specialitsContainer{
+ height: 550px;}
 .ic{
 	display: flex;
 	justify-content: center;
@@ -127,18 +129,30 @@
 	
 }
 .genContainer{
-	height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	background: #f2f2f2;
+	
 }
- .swiper{
-	width: 950px;
-	float: inherit;
+.cards{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-attachment: fixed;
+	
+}
+.genContainer{
+	position: relative;
+	
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
 }
 
-section .genCard .genImage{
+.cards .genCard .genImage{
 	height: 140px;
 	width: 140px;
     border-radius: 50%;
@@ -146,7 +160,7 @@ section .genCard .genImage{
 	
 }
 
-section .genCard .genImage img{
+.cards .genCard .genImage img{
 	height: 100%;
 	width: 100%;
 	object-fit:cover;
@@ -165,7 +179,7 @@ section .genCard .genImage img{
 .genCard::before{
 	content: "";
 	position: absolute;
-	height: 20%;
+	height: 30%;
 	width: 100%;
 	background: #A1CAE2;
 	border-radius: 20px 20px 0 0 ;

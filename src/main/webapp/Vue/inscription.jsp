@@ -100,6 +100,8 @@
 var status = document.getElementById("status").value;
 if(status=="success"){
 	swal("Congrats","Account Created Successfully","success");
+}else{
+	swal("Ops","Something went wrong","failed");
 }
 </script>
   

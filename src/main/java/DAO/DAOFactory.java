@@ -76,9 +76,7 @@ public class DAOFactory {
 	        return new AdminDaoImp(this);
 	    }
 	    
-	    public DoctorDAO getDoctorDao() {
-	        return new DoctorDaoImp(this);
-	    }
+	    
 	    
 	    public PatientDAO getPatientDao() {
 	        return new PatientDaoImp(this);

@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Doctor implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-	private String id;
+	private int id;
 	private String nom;
 	private String prenom;
 	private String email;
@@ -14,10 +14,22 @@ public class Doctor implements Serializable{
 	private String specialite;
 	
 	 public Doctor() {}
-	public String getId() {
+	 
+	 
+	public Doctor(int id, String nom, String prenom, String email, String tel) {
+		
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.tel = tel;
+	}
+
+
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getNom() {
@@ -58,6 +70,11 @@ public class Doctor implements Serializable{
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+	@Override
+	public String toString() {
+		return "Doctor [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", tel=" + tel
+				+ ", password=" + password + ", specialite=" + specialite + "]";
 	}
 	
 	

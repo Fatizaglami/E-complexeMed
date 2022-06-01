@@ -40,7 +40,7 @@ public class LoginDao {
 
 
     public void setColumns(LoginBean loginbean) throws ClassNotFoundException {
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/complexemed", "root", "");

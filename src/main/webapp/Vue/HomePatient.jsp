@@ -1,5 +1,21 @@
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@page import="Model.Doctor" %>
+<%@page import="DAO.DoctorDaoImp" %>
+<%@page import="connecton.DbCon" %>
+
+<%
+DoctorDaoImp doc= new DoctorDaoImp(DbCon.getConnection());
+List<Doctor> doctors = doc.getAllDoctors();
+Doctor doctor;
+
+
+
+
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +34,8 @@
     <%@ include file="Navbar.jsp" %>
 
 </div>
+<input type="hidden" id="status" value="<%= request.getAttribute("status") %>">
+
 <div class="bd">
 <div class="container">
    <div class="card">
@@ -83,7 +101,7 @@
    
       <div class="ic">
       
-      <a href="#" class="item">
+      <a href="#cards" class="item">
        <i class="fa fa-stethoscope"></i>     </a>
       </div>
       <h4>Generalist</h4>
@@ -150,68 +168,59 @@
 </div>
 
 <!-- GENERALISTE -->
-<section>
-<div class="swiper mySwiper genContainer">
+<div class="cards" id="cards">
+<div class="genContainer ">
+ <%
+ if(!doctors.isEmpty()){
+	 System.out.println("ana hna");
+	 for(Doctor d:doctors){
+	 int id_d= d.getId();
+	 System.out.println(id_d);
+	 %>
+		 <div class=" genContent">
+	      <div class=" genCard">
+	          <div class="genCard-content">
+	          <div class="genImage">
+	            <img alt="" src="img/doc.jpg">
+	          </div>
+	          
+	          <div class="media-icons">
+	          <i class="fab fa-facebook"></i>
+	          <i class="fab fa-twitter"></i>
+	          <i class="fab fa-google"></i>
+	          </div>
+	          <div class="name-prof">
+	          <span class="name">Dr.<%= d.getNom() %><% out.println(" "+d.getPrenom()); %></span>
+	          <span class="prof">Generalist doctor</span>
+	          </div>
+	          
+	          <div class="rating">
+	          <i class="fas fa-star"></i>
+	          <i class="fas fa-star"></i>
+	          <i class="fas fa-star"></i>
+	          <i class="far fa-star"></i>
+	          <i class="far fa-star"></i>
+	          </div>
+	          <div class="genBtn">
+	          <button class="ab" ><a href="user-form.jsp?id=<%=d.getId()%>">Make an appointment</button>
+	          </div>
+	          </div>
+	          </div>
+	  </div>
+	  
+
+	  
+	      
+	  
+	<% }}
  
-  <div class="swiper-wrapper genContent">
-      <div class="swiper-slide genCard">
-          <div class="genCard-content">
-          <div class="genImage">
-            <img alt="" src="img/doc.jpg">
-          </div>
-          
-          <div class="media-icons">
-          <i class="fab fa-facebook"></i>
-          <i class="fab fa-twitter"></i>
-          <i class="fab fa-google"></i>
-          </div>
-          <div class="name-prof">
-          <span class="name">Dr.ZAGLAMI Fatimzahra</span>
-          <span class="prof">Generalist doctor</span>
-          </div>
-          
-          <div class="rating">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="far fa-star"></i>
-          <i class="far fa-star"></i>
-          </div>
-          <div class="genBtn">
-          <button class="ab">Make an appointment</button>
-          </div>
-          </div>
-      </div>
-  
-  </div>
+ %>
+ 
   
 
-<div class="swiper-button-next" ></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
-      </div>
-</section>
-<!-- Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+       </div>
+</div>
 
-    <!-- Initialize Swiper -->
-    <script>
-      var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 3,
-        spaceBetween: 30,
-        slidesPerGroup: 3,
-        loop: true,
-        loopFillGroupWithBlank: true,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      });
-    </script>
 
 
 <div class="footer" id="footer">
@@ -236,7 +245,7 @@
                                         </tr>
                                         <tr>
                                             <th scope="row"> Last Name : </th>
-                                            <td><%= prenom%></td>
+                                            <td><%= prenom %></td>
 
                                         </tr>
                                         <tr>
@@ -280,8 +289,18 @@
 
 
 
+<script type="text/javascript" src="app.js" ></script>
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" href="alert/dist/sweetalert.css">
+<script type="text/javascript">
 
-
+var status = document.getElementById("status").value;
+if(status=="success"){
+	swal("Congrats","Your appointement added succesfully","success");
+}else{
+	swal("Ops","Something went wrong","failed");
+}
+</script>
 
 
 
