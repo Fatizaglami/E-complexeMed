@@ -6,16 +6,62 @@ public class Doctor implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	private int id;
+	private String username;
 	private String nom;
 	private String prenom;
 	private String email;
 	private String tel;
 	private String password;
 	private String specialite;
+	public String getUsername() {
+		return username;
+	}
+
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+
+	public Doctor(String username, String nom, String prenom, String email, String tel, String password,
+			String specialite) {
+		super();
+		this.username = username;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.tel = tel;
+		this.password = password;
+		this.specialite = specialite;
+	}
+	
 	
 	 public Doctor() {}
 	 
 	 
+	public Doctor(String nom, String prenom, String email, String tel, String password, String specialite) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.tel = tel;
+		this.password = password;
+		this.specialite = specialite;
+	}
+
+
+	public Doctor(int id, String nom, String prenom, String email, String tel, String password, String specialite) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.tel = tel;
+		this.password = password;
+		this.specialite = specialite;
+	}
+
+
 	public Doctor(int id, String nom, String prenom, String email, String tel) {
 		
 		this.id = id;

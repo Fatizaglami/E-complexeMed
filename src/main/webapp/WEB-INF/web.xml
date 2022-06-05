@@ -41,4 +41,16 @@
     <servlet-name>MakeAppoiServlet</servlet-name>
     <url-pattern>/Vue/Appointement</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddDocServlet</display-name>
+    <servlet-name>AddDocServlet</servlet-name>
+    <servlet-class>controller.AddDocServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddDocServlet</servlet-name>
+    <url-pattern>/Vue/AddDoc</url-pattern>
+  </servlet-mapping>
+ 
+  
 </web-app>

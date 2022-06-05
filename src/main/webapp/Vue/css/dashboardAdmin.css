@@ -1,3 +1,4 @@
+@charset "ISO-8859-1";
 body,html{
 	line-height:1.8;
 	font-family:'Poppins',sans-serif;
@@ -106,8 +107,7 @@ body,html{
 	position:relative;
     width:100%;
     overflow:visible;	
-    display:inline;
-   
+    display: inline;
   }
   .cont-right{
 
@@ -116,16 +116,16 @@ body,html{
 	align-self: center;
 
 }
-#wrapper{
+  #wrapper{
 	display: flex;
 	justify-content: space-between
-}
+        }
   
   /*=========sidebar---design------*/
   
   #sidebar{
 	  position:fixed;
-	  height:100%!important;
+	  height:100vh!important;
 	  top:0;
 	  left:0;
 	  bottom:0;
