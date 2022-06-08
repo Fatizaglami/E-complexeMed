@@ -1,8 +1,12 @@
+<%@page import="DAO.AppointementDAO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+    <%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="Model.Doctor" %>
+<%@page import="Model.rv" %>
 <%@page import="DAO.DoctorDaoImp" %>
 <%@page import="connecton.DbCon" %>
 
@@ -10,6 +14,12 @@
 DoctorDaoImp doc= new DoctorDaoImp(DbCon.getConnection());
 List<Doctor> doctors = doc.getAllDoctors();
 Doctor doctor;
+Object id_p=session.getAttribute("id");
+int idd = (Integer)id_p;
+
+AppointementDAO appoi = new AppointementDAO(DbCon.getConnection());
+List<rv> rv = appoi.getAllAppById(idd);
+rv appointement;
 
 
 
@@ -53,7 +63,7 @@ Doctor doctor;
      </div>
      <div class="content">
      <p>Check your appointments on our platform, from here </p>
-     <a href="#">Read More</a>
+     <a href="#!" data-bs-toggle="modal" data-bs-target="#appoi-modal">Read More</a>
      </div>
    </div>
    <div class="card">
@@ -279,9 +289,47 @@ Doctor doctor;
 
 
 
+<!-- Modal Appointement -->
+<div class="modal fade" id="appoi-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">My Appointements</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+    
+      <div id="appoi-details">
+  <%
+ if(!rv.isEmpty()){
+	 System.out.println("ana hna");
+	 for(rv ap:rv){
+		 Connection con = DbCon.getConnection();
+		 PreparedStatement ps=con.prepareStatement("select nom,prenom from doctor where id=?");
+		int id_d= ap.getId_d();
+		 ps.setInt(1, id_d);
+		 ResultSet rs =ps.executeQuery();
+		 if(rs.next()){
 
+		 
+	 %>
+	 <div >
+                                <span class="RvText" >Your appointement:</span><br>
+                                <span ><%= ap.getDate() %>with Dr.<% out.print(rs.getString(1)+" "+rs.getString(2)); %></span><br>
+ </div>
+ <%
+}
+ }
+ }
+%>
+                            </div>
+                            	
 
-
+<div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
@@ -297,9 +345,9 @@ Doctor doctor;
 var status = document.getElementById("status").value;
 if(status=="success"){
 	swal("Congrats","Your appointement added succesfully","success");
-}else{
+}/*else{
 	swal("Ops","Something went wrong","failed");
-}
+}*/
 </script>
 
 

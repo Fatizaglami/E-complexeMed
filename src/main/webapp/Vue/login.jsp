@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+<input type="hidden" id="status" value="<%= request.getAttribute("status") %>">
 <div class="container">
   <div class="forms-container">
   
@@ -160,5 +161,18 @@
    		</div>
    		<% }%>
       </div>  
+      
+      
+<script type="text/javascript" src="app.js" ></script>
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" href="alert/dist/sweetalert.css">
+<script type="text/javascript">
+
+var status = document.getElementById("status").value;
+if(status=="failed"){
+	swal("Sorry","Username or password wrong","failed");
+}
+</script>
+
 </body>
 </html>

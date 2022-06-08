@@ -49,10 +49,12 @@
                     <select name="type" id="select" >
                         <option value="Medecin">Doctor</option>
                         <option value="Patient">Patient</option>
-                        <option value="Admin">Admin</option>
+                        
+                        
                     </select>
                     </label>
                 </div>
+                
            <input type="submit" class="btn solid"  value="Sign up"/>
          
            <p class="social-text">Or Sign up with social platforms</p>

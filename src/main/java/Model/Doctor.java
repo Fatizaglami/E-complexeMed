@@ -13,6 +13,8 @@ public class Doctor implements Serializable{
 	private String tel;
 	private String password;
 	private String specialite;
+	
+	
 	public String getUsername() {
 		return username;
 	}
@@ -50,8 +52,9 @@ public class Doctor implements Serializable{
 	}
 
 
-	public Doctor(int id, String nom, String prenom, String email, String tel, String password, String specialite) {
+	public Doctor(int id,String username, String nom, String prenom, String email, String tel, String password, String specialite) {
 		super();
+		this.username=username;
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;

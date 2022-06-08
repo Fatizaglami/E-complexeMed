@@ -38,6 +38,11 @@ public class DoctorDaoImp {
 				row.setId(rs.getInt("id"));
 				row.setNom(rs.getString("nom"));
 				row.setPrenom(rs.getString("prenom"));
+				row.setTel(rs.getString("tel"));
+				row.setEmail(rs.getString("email"));
+			//	row.setPrenom(rs.getString("password"));
+				//row.setPrenom(rs.getString("specialite"));
+				//row.setPrenom(rs.getString("username"));
 
 				doctors.add(row);
 			}

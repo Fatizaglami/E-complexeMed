@@ -12,6 +12,7 @@ public class Patient implements Serializable{
 	private String password;
 	private String cin;
 	private String age;
+	
 	public String getNom() {
 		return nom;
 	}

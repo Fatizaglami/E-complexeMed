@@ -51,6 +51,15 @@
     <servlet-name>AddDocServlet</servlet-name>
     <url-pattern>/Vue/AddDoc</url-pattern>
   </servlet-mapping>
- 
+ <servlet>
+    <description></description>
+    <display-name>DoctorsCrudServlet</display-name>
+    <servlet-name>DoctorsCrudServlet</servlet-name>
+    <servlet-class>controller.DoctorsCrudServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoctorsCrudServlet</servlet-name>
+    <url-pattern>*.doctor</url-pattern>
+  </servlet-mapping>
   
 </web-app>

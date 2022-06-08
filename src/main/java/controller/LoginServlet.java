@@ -11,11 +11,11 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
 import Beans.LoginBean;
-import DAO.AdminDAO;
-import DAO.AdminDaoImp;
-import DAO.DAOFactory;
+
+
+
 import DAO.LoginDao;
-import Model.Admin;
+
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
 
         String username = (String)session.getAttribute("username");
         if(username==null) {
-            request.getRequestDispatcher("/Vue/err.jsp").forward(request, response);
+			request.setAttribute("status", "failed");
             System.out.println("non");
         }
         else {
@@ -95,12 +95,9 @@ public class LoginServlet extends HttpServlet {
             }
             else
             {
-                String msg = "<div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">\r\n"
-                        + "  <strong>Erreur lors de l'authentification !</strong> Verifier votre username ou votre mot de passe ou bien le type de connexion.\r\n"
-                        + "  <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>\r\n"
-                        + "</div>";
-                request.setAttribute("msg",msg);
-                request.getRequestDispatcher("/Vue/err.jsp").forward(request, response);
+                request.getRequestDispatcher("/Vue/login.jsp").forward(request, response);
+
+				request.setAttribute("status", "failed");
                 System.out.println("makayn walu");
             }
 
