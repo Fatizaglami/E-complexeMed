@@ -83,10 +83,11 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("tel", tel);
 
                 if(loginbean.getType().equals("Admin")) {
-                    request.getRequestDispatcher("/Vue/home.jsp").forward(request, response);
+                    request.getRequestDispatcher("/Vue/DashboardAdmin.jsp").forward(request, response);
                     System.out.println("admin");
                 } else if(loginbean.getType().equals("Medecin")){
-                    this.getServletContext().getRequestDispatcher("/espacePsy.jsp").forward(request, response);
+                	System.out.println("nom");
+                    request.getRequestDispatcher("/Vue/HomeDoctor.jsp").forward(request, response);
 
                 }else {
                     request.getRequestDispatcher("/Vue/HomePatient.jsp").forward(request, response);

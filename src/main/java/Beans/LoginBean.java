@@ -2,13 +2,13 @@ package Beans;
 
 public class LoginBean {
     private int id;
-    private String username="";
-    private String password="";
-    private String type="";
-    private String nom="null";
-    private String prenom="null";
-    private String email ="";
-    private String tel ="";
+    private String username;
+    private String password;
+    private String type;
+    private String nom;
+    private String prenom;
+    private String email ;
+    private String tel ;
 
     public String getUsername() {
         return username;

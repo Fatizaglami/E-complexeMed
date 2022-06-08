@@ -5,14 +5,27 @@ import java.io.Serializable;
 public class Patient implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
+	private int id;
+	private String username;
 	private String nom;
 	private String prenom;
 	private String email;
 	private String tel;
 	private String password;
-	private String cin;
-	private String age;
 	
+	
+	public int getId() {
+		return id;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getNom() {
 		return nom;
 	}
@@ -43,17 +56,19 @@ public class Patient implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getCin() {
-		return cin;
+	
+	public Patient() {
+		
 	}
-	public void setCin(String cin) {
-		this.cin = cin;
-	}
-	public String getAge() {
-		return age;
-	}
-	public void setAge(String age) {
-		this.age = age;
+	public Patient(int id, String username, String nom, String prenom, String email, String tel, String password) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.tel = tel;
+		this.password = password;
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;

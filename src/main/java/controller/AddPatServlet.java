@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -17,26 +18,28 @@ import connecton.*;
 import jakarta.servlet.RequestDispatcher;
 
 
-public class AddDocServlet extends HttpServlet {
+public class AddPatServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    
-    public AddDocServlet() {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AddPatServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
-    
 
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
 	}
 
-	
-	@Override
+    @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = null;
+    	
+    	
+    	
+    	RequestDispatcher dispatcher = null;
 
 		try {
 			Connection con = DbCon.getConnection();
@@ -49,25 +52,22 @@ public class AddDocServlet extends HttpServlet {
 			String username = request.getParameter("username");
 			
 
-			String specialite= request.getParameter("specialite");
 			
 			
-			  PreparedStatement preparedStatement = con.prepareStatement("insert into doctor(username,nom,prenom,tel,email,password,specialite) values (?,?,?,?,?,?,?)");
+			
+			  PreparedStatement preparedStatement = con.prepareStatement("insert into patient(username,nom,prenom,tel,email,password) values (?,?,?,?,?,?)");
 			  preparedStatement.setString(1,username);
 			  preparedStatement.setString(2,nom);
 			  preparedStatement.setString(3,prenom);
 			  preparedStatement.setString(4,tel);
 			  preparedStatement.setString(5,email);
 			  preparedStatement.setString(6,password);
-			  preparedStatement.setString(7,specialite);
+			 
 
-			 // preparedStatement.setString(6,specialite);
-			  
+		
 			 int row= preparedStatement.executeUpdate();
-			 //request.getRequestDispatcher("/DoctorsCrud1jsp.jsp");
 			 if(row>0) {
-				 System.out.println("ROOOOW");
-				 request.setAttribute("status", "success");
+				 System.out.println("okkk");
 			 }else {
 				 System.out.println("laaaa");
 			 }
@@ -77,8 +77,11 @@ public class AddDocServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		//request.getRequestDispatcher("/DoctorsCrud1jsp.jsp");
-	
-		response.sendRedirect("DoctorsCrud1jsp.jsp");
+		response.sendRedirect("patientsCrud.jsp");
+		
+    	
+    	
+    	
+	}
 
-
-}}
+}

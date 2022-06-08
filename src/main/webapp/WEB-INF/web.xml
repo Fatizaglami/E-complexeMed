@@ -51,15 +51,97 @@
     <servlet-name>AddDocServlet</servlet-name>
     <url-pattern>/Vue/AddDoc</url-pattern>
   </servlet-mapping>
- <servlet>
+
+   <servlet>
     <description></description>
-    <display-name>DoctorsCrudServlet</display-name>
-    <servlet-name>DoctorsCrudServlet</servlet-name>
-    <servlet-class>controller.DoctorsCrudServlet</servlet-class>
+    <display-name>AddPatServlet</display-name>
+    <servlet-name>AddPatServlet</servlet-name>
+    <servlet-class>controller.AddPatServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>DoctorsCrudServlet</servlet-name>
-    <url-pattern>*.doctor</url-pattern>
+    <servlet-name>AddPatServlet</servlet-name>
+    <url-pattern>/Vue/AddPat</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <description></description>
+    <display-name>EditDocServlet</display-name>
+    <servlet-name>EditDocServlet</servlet-name>
+    <servlet-class>controller.EditDocServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditDocServlet</servlet-name>
+    <url-pattern>/Vue/EditDoc</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>EditPatServlet</display-name>
+    <servlet-name>EditPatServlet</servlet-name>
+    <servlet-class>controller.EditPatServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditPatServlet</servlet-name>
+    <url-pattern>/Vue/EditPat</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <servlet>
+    <description></description>
+    <display-name>UpdateDocServlet</display-name>
+    <servlet-name>UpdateDocServlet</servlet-name>
+    <servlet-class>controller.UpdateDocServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateDocServlet</servlet-name>
+    <url-pattern>/Vue/UpdateDoc</url-pattern>
+  </servlet-mapping>
+  
+    
+  <servlet>
+    <description></description>
+    <display-name>UpdatePatServlet</display-name>
+    <servlet-name>UpdatePatServlet</servlet-name>
+    <servlet-class>controller.UpdatePatServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdatePatServlet</servlet-name>
+    <url-pattern>/Vue/UpdatePat</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <description></description>
+    <display-name>NavigationServlet</display-name>
+    <servlet-name>NavigationServlet</servlet-name>
+    <servlet-class>controller.NavigationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NavigationServlet</servlet-name>
+    <url-pattern>/Vue/NavigationServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>DeleteDocServlet</display-name>
+    <servlet-name>DeleteDocServlet</servlet-name>
+    <servlet-class>controller.DeleteDocServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteDocServlet</servlet-name>
+    <url-pattern>/Vue/DeleteDoc</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>DeletePatServlet</display-name>
+    <servlet-name>DeletePatServlet</servlet-name>
+    <servlet-class>controller.DeletePatServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeletePatServlet</servlet-name>
+    <url-pattern>/Vue/DeletePat</url-pattern>
+  </servlet-mapping>
+  
+ 
 </web-app>

@@ -47,7 +47,7 @@ public class LoginDao {
             String tablename = null;
             //Type d'utilisateur
             if(loginbean.getType().equals("Medecin"))
-                tablename = "medcin";
+                tablename = "doctor";
             if(loginbean.getType().equals("Patient"))
                 tablename = "patient";
             if(loginbean.getType().equals("Admin"))

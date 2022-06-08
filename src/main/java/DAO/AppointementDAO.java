@@ -42,6 +42,27 @@ public class AppointementDAO {
 			}
 	    	return appointements;
 	    }
-	    
+		public List<rv> getAllDocAppById(int id){
+		    List<rv> appointements = new ArrayList<rv>();
+		    try {
+				query = "select * from rv where id_d=? ";
+				
+				pst = this.con.prepareStatement(query);
+				pst.setInt(1, id);
+				rs = pst.executeQuery();
+				while(rs.next()) {
+					rv row = new rv();
+					row.setId(rs.getInt("id"));
+					row.setId_d(rs.getInt("id_d"));
+					row.setId_p(rs.getInt("id_p"));
+					row.setDate(rs.getDate("date"));
+					
+					appointements.add(row);
+				}
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+	    	return appointements;
+	    }
 
 }

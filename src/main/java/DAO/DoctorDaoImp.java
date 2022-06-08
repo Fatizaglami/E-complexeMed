@@ -40,8 +40,8 @@ public class DoctorDaoImp {
 				row.setPrenom(rs.getString("prenom"));
 				row.setTel(rs.getString("tel"));
 				row.setEmail(rs.getString("email"));
-			//	row.setPrenom(rs.getString("password"));
-				//row.setPrenom(rs.getString("specialite"));
+				row.setUsername(rs.getString("username"));
+				row.setSpecialite(rs.getString("specialite"));
 				//row.setPrenom(rs.getString("username"));
 
 				doctors.add(row);

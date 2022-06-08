@@ -1,17 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-      <%@page import="java.util.List"%>           
+
+  <%@page import="java.util.List"%>           
 <%@page import="Model.Doctor" %>
 <%@page import="DAO.DoctorDaoImp" %>
 <%@page import="connecton.DbCon" %>
-
 
 <%
 DoctorDaoImp doc= new DoctorDaoImp(DbCon.getConnection());
 List<Doctor> doctors = doc.getAllDoctors();
 //Doctor doctor;
-%>
 
+
+
+
+
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,23 +26,24 @@ List<Doctor> doctors = doc.getAllDoctors();
   <link rel="stylesheet" href="css/dashboardAdmin.css" />
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  
+   
   
   
   <!-- google font -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"  />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css">
   
-  <link rel="preconnect"  href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com "/>
+  <link rel="preconnect" href="https://fonts.gstatic.com"/ >
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 
 
   <!-- google materiel icon -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
+  <input type="hidden" id="status" value="<%= request.getAttribute("status") %>">
+  
   <div class="wrapper">
   <div class="body-overlay"></div>
   <!----------sidebar------------->
@@ -179,89 +182,19 @@ List<Doctor> doctors = doc.getAllDoctors();
  <li class="nav-item">
  <a class="nav-link" href="logout.jsp"><span class="material-icons">logout</span></a>
  </li>
-  
-  
-  
-  
-  </ul>
-  </div>
-</div>
-  </nav>
-  </div>
-  <!------ main content-------- -->
-  <div class="main-content">
-  <div class="row">
-  <div class="col-lg-3 col-md-6 col-sm-6 visits">
-  <div class="card card-stats">
-  <div class="card-header">
-  <div class="icon icon-warning">
-  <span class="material-icons">people</span>
-  </div>
-  </div>
-  <div class="card-content">
-  <p class="category"><strong>Visits</strong></p>
-  <h3 class="card-title">70,340</h3>
-  </div>
-  <div class="card-footer">
-  <div class="stats">
-  <i class="material-icons text-info">info</i>
-  <a href="NavigationServlet?action=">See detailed report</a>
-  </div>
-  </div>
-  
-
-  </div>
-  </div>
-  <div class="col-lg-3 col-md-6 col-sm-6 patients">
-  <div class="card card-stats">
-  <div class="card-header">
-  <div class="icon icon-warning">
-  <span class="material-icons">people</span>
-  </div>
-  </div>
-  <div class="card-content">
-  <p class="category"><strong>Patients</strong></p>
-  <h3 class="card-title">20</h3>
-  </div>
-  <div class="card-footer">
-  <div class="stats">
-  <i class="material-icons text-info">info</i>
-  <a href="NavigationServlet?action=CrudPatients">See detailed report</a>
-  </div>
-  </div>
-
-  </div>
-  </div>
-  <div class="col-lg-3 col-md-6 col-sm-6 doctors">
-  <div class="card card-stats">
-  <div class="card-header">
-  <div class="icon icon-warning">
-  <span class="material-icons">people</span>
-  </div>
-  </div>
-  <div class="card-content">
-  <p class="category"><strong>Doctors</strong></p>
-  <h3 class="card-title">100</h3>
-  </div>
-  <div class="card-footer">
-  <div class="stats">
-  <i class="material-icons text-info">info</i>
-  <a href="NavigationServlet?action=CrudDoctors">See detailed report</a>
-  </div>
-  </div>
-
-  </div>
-  
-  </div>
-  </div>
-  <!-- second row -->
-  
-  <div class="row" >
-  <div class="col-lg-12 col-md-12 d-flex" >
-  <div class="card" style="min-height: 485px; display:flex">
+ </ul>
+ </div>
+ </div>
+ </nav>
+ </div>
+ <div class="row" style="display:flex;
+                       margin-left:60px;
+                     width:1100px ">
+  <div class="col-lg-12 col-md-12 d-flex">
+  <div class="card" style="min-height: 485px">
   <div class="card-header card-header-text">
-  <h4 class="card-title">Employess stats</h4>
-  <p class="cateory"> New employees on 15th mai,2022</p>
+  <h4 class="card-title">Doctors stats</h4>
+  <p class="cateory"> New Doctors on 15th mai,2022</p>
   <div class="col-sm-6 p-0 flex d-flex justify-content-lg-end justify-content-center">
  <a href="#" style="margin:5px;" data-bs-toggle="modal" data-bs-target="#addDoctorModal" class="btn btn-success d-flex" data-toggle="modal">
   <i class="material-icons">&#xE147;</i>
@@ -275,13 +208,14 @@ List<Doctor> doctors = doc.getAllDoctors();
      <table class="table table-hover">
      <thead class="text-primary">
      <tr>
-     <th>id</th>
-      <th>username</th>
+     
+     <th>ID</th>
+     <th>Username</th>
      <th>nom</th>
      <th>prenom</th>
      <th>email</th>
-     <th>telephone</th>
-     <th>specialite</th> 
+     <th>telephone</th> 
+     <th>Specialite</th>
      <th>Actions</th>
         </tr>
      </thead>
@@ -327,51 +261,7 @@ List<Doctor> doctors = doc.getAllDoctors();
      </table>
   </div>
   </div>
-  </div>
-  <div class="col-lg-5 col-md-12">
-  <div class="card" style="min-height:485; padding-left: 0px;">
-  <div class="card-header card-header-text">
-  <h4 class="card-title">activities</h4>
-  </div>
   
-  </div>
-  <div class="card-content">
-  <div class="steamline">
-  <div class="sl-item sl-primary">
-  <div class="sl-content">
-  <small class="text-muted">5 min Ago</small>
-  <p> Nouhaila has just joined </p>
-  
-  </div>
-  </div> 
-  
-  <div class="sl-item sl-danger">
-  <div class="sl-content">
-  <small class="text-muted">20 min Ago</small>
-  <p> Nouhaila has just joined </p>
-  
-  </div>
-  </div>  
-  <div class="sl-item  sl-warning">
-  <div class="sl-content">
-  <small class="text-muted">45 minn Ago</small>
-  <p> Nouhaila has just joined </p>
-  
-  </div>
-  </div>  
-  <div class="sl-item sl-warning">
-  <div class="sl-content">
-  <small class="text-muted">55 minn Ago</small>
-  <p> Nouhaila has just log out </p>
-  
-  </div>
-  </div>  
-   
-  </div>
-  </div>
-  
-  
-  </div>
   <!-- add modal start -->
   <div class="modal fade" tabindex="-1" id="addDoctorModal" role="dialog">
   <div class="modal-dialog" role="document">
@@ -379,25 +269,46 @@ List<Doctor> doctors = doc.getAllDoctors();
       <div class="modal-header">
         <h5 class="modal-title">Add Doctors</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
+      </div> <form action="AddDoc" method="POST">
       <div class="modal-body">
+      <div class="form-group">
+       <label>username</label> 
+       <input type="text" class="form-control" name="username" required >
+       </div>
+     
        <div class="form-group">
-       <label>Nom</label>
-       <input type="text" class="form-control" required >
+       <label>Nom</label> 
+       <input type="text" class="form-control" name="nom" required >
        </div>
        <div class="form-group">
        <label>Prenom</label>
-       <input type="text" class="form-control" required >
+       <input type="text" class="form-control" name="prenom"required >
        </div>
        <div class="form-group">
        <label>Email</label>
-       <input type="email" class="form-control" required >
+       <input type="email" class="form-control" name="email"required >
+       </div>
+       <div class="form-group">
+       <label>Telephone</label>
+       <input type="text" class="form-control" name="tel"required >
+       </div>
+       <div class="form-group">
+       <label>Mot de passe</label>
+       <input type="password" class="form-control" name="password"required >
+       </div>
+       
+       <div class="form-group">
+       <label>Specialite</label>
+       <input type="text" class="form-control" name="specialite"required >
        </div>
       </div>
+      
       <div class="modal-footer">
+        <button type="submit" class="btn btn-success" >Add</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-success">Add</button>
+        
       </div>
+      </form>
     </div>
   </div>
 </div>
@@ -407,37 +318,7 @@ List<Doctor> doctors = doc.getAllDoctors();
   
   
   
-  <!-- edit modal start -->
-  <div class="modal fade" tabindex="-1" id="editDoctorModal" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Edit Doctors</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-       <div class="form-group">
-       <label>Nom</label>
-       <input type="text" class="form-control" required >
-       </div>
-       <div class="form-group">
-       <label>Prenom</label>
-       <input type="text" class="form-control" required >
-       </div>
-       <div class="form-group">
-       <label>Email</label>
-       <input type="email" class="form-control" required >
-       </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-success">Save</button>
-      </div>
-    </div>
-  </div>
-</div>
   
-  <!-- edit modal end -->
   
   
   
@@ -468,7 +349,10 @@ List<Doctor> doctors = doc.getAllDoctors();
   
   
   </div>
-  <!-- footer -->
+
+  
+  </div>
+   <!-- footer -->
   <footer class="footer">
   <div class="container-fluid">
   <div class="row">
@@ -496,8 +380,7 @@ List<Doctor> doctors = doc.getAllDoctors();
   </footer>
   
   </div>
-  </div>
-  
+   
   </div> 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" ></script>
@@ -515,10 +398,17 @@ const button= document.getElementById('sidebar-collapse');
   sidebar.classList.toggle('active');
   content.classList.toggle('active');
 }
+
+  
+  
+
+
+
 </script>
 <script type="text/javascript">
 const moreButton= document.getElementById('more-button'); 
   const overlay=document.getElementById('body-overlay');
+
 moreButton.onclick= function(){
 sidebar.classList.toggle('show-nav);
 }
@@ -526,11 +416,21 @@ overlay.onclick= function(){
 sidebar.classList.toggle('show-nav);
 }
 </script>
+<script type="text/javascript"
+    src="jquery-ui-1.10.0/tests/jquery-1.9.0.js"></script>
+<script src="jquery-ui-1.10.0/ui/jquery-ui.js"></script>
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" href="alert/dist/sweetalert.css">
+<script type="text/javascript">
 
+var status = document.getElementById("status").value;
+if(status=="success"){
+	swal("Congrats","Doctor added Successfully","success");
+}
+</script>
 
 
   
   </body>
      
-  
   </html>
