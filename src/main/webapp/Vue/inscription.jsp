@@ -43,18 +43,50 @@
           <i class="fa fa-phone"></i>
           <input type="tel" placeholder="Phone" name="tel" required="required"/>
          </div>
-         
+         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#select").change(function () {
+            if ($(this).val() == "Medecin") {
+                $("#test").removeAttr("disabled");
+                $("#test").focus();
+            } else {
+                $("#test").attr("disabled", "disabled");
+            }
+        });
+    });
+</script>
          <div class="nav-list">
-                    <label>
+                    <label >Sign up as :
                     <select name="type" id="select" >
-                        <option value="Medecin">Doctor</option>
+                        
                         <option value="Patient">Patient</option>
+                        <option value="Medecin">Doctor</option>
                         
                         
                     </select>
                     </label>
+                    
                 </div>
-                
+                <br>
+              
+                <div class="nav-list">
+                    <label >Speciality :
+                    <select name="speciality" id="test" disabled="disabled">
+                        
+                        <option value="gygy">Gynecology</option>
+                        <option value="generalist">Generalist</option>
+                        <option value="pneumology">Pneumology</option>
+                        <option value="cardiology">Cardiology</option>
+                        <option value="ophtalmology">Ophtalmology</option>
+                        <option value="neurology">Neurology</option>
+                        
+                        
+                        
+                    </select>
+                    </label>
+                    
+                </div>
            <input type="submit" class="btn solid"  value="Sign up"/>
          
            <p class="social-text">Or Sign up with social platforms</p>
@@ -94,7 +126,9 @@
   
 
 </div>
- <script type="text/javascript" src="app.js" ></script>
+<script type="text/javascript"
+    src="jquery-ui-1.10.0/tests/jquery-1.9.0.js"></script>
+<script src="jquery-ui-1.10.0/ui/jquery-ui.js"></script>
  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" href="alert/dist/sweetalert.css">
 <script type="text/javascript">
@@ -102,8 +136,6 @@
 var status = document.getElementById("status").value;
 if(status=="success"){
 	swal("Congrats","Account Created Successfully","success");
-}else{
-	swal("Ops","Something went wrong","failed");
 }
 </script>
   

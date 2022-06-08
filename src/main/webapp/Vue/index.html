@@ -117,11 +117,11 @@
         <p> Welcome to the app of miola students,</br> 
         this application is developed in the context of the JEE project,</br> 
          by the students Zaglami fatima zahra & Elfahsi nouhaila.</p>
-         <a href="tt.jsp"><button class="btn transparent" id="sign-up-button">Sign Up</button></a>
+         <button class="btn transparent" id="sign-up-button">Sign Up</button>
       </div>
         <img src="img/log.svg" alt="" class="image" />
       </div>
-      <!-- 
+     
       <div class="panel right-panel">
         <div class="content">
         <h3>One Of Us</h3>
@@ -133,12 +133,24 @@
         </div>
         <img src="img/register.svg" alt="" class="image" />
       </div>
-      -->
+      
     </div>
   
 
 </div>
- <script type="text/javascript" src="app.js" ></script>
+ <script type="text/javascript" >
+ const sign_in_btn = document.querySelector('#sign-in-button');
+ const sign_up_btn = document.querySelector('#sign-up-button');
+ const container = document.querySelector('.container');
+
+ sign_up_btn.addEventListener('click', ()=>{
+ 	container.classList.add('sign-up-mode');
+ });
+
+ sign_in_btn.addEventListener('click',()=>{
+ 	container.classList.remove('sign-up-mode');
+ });
+ </script>
   
 </body>
 </html>

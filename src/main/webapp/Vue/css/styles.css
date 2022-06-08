@@ -218,17 +218,17 @@ form.sign-up-form{
 	font-size: 0.8rem;
 }
 
-.right-panel .content, 
-.right-panel .image{
+.right-panel .content, .right-panel .image{
 	transform : translateX(800px);
 }
 
 /* animation */
 
-.container .sign-up-mode::before{
+.container.sign-up-mode::before{
 	transform : translate(100%, -50%);
 	right:52%;
 }
+
 select {
 	width: 140px;
 	height: 40px;

@@ -45,16 +45,19 @@ public class InscriptionServlet extends HttpServlet {
 			PreparedStatement pst;
 			
 			if(type.equals("Medecin")) {
-				pst=con.prepareStatement("insert into doctor(username,nom,prenom,tel,email,password) values (?,?,?,?,?,?)");
+		        String speciality = request.getParameter("speciality");
+
+				pst=con.prepareStatement("insert into doctor(username,nom,prenom,tel,email,password,specialite) values (?,?,?,?,?,?,?)");
 				pst.setString(1,uname);
 				pst.setString(2,unom);
 				pst.setString(3,uprenom);
 				pst.setString(4,utel);
 				pst.setString(5,uemail);
 				pst.setString(6,upass);
+				pst.setString(7,speciality);
 				
 				int rowCount = pst.executeUpdate();
-				dispatcher = request.getRequestDispatcher("inscription.jsp");
+				dispatcher = request.getRequestDispatcher("login.jsp");
 				if(rowCount >0) {
 					request.setAttribute("status", "success");
 					
@@ -75,7 +78,7 @@ public class InscriptionServlet extends HttpServlet {
 				pst.setString(6,upass);
 				
 				int rowCount = pst.executeUpdate();
-				dispatcher = request.getRequestDispatcher("inscription.jsp");
+				dispatcher = request.getRequestDispatcher("login.jsp");
 				if(rowCount >0) {
 					request.setAttribute("status", "success");
 					

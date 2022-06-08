@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
 
-        String username = (String)session.getAttribute("username");
+     /*   String username = (String)session.getAttribute("username");
         if(username==null) {
 			request.setAttribute("status", "failed");
             System.out.println("non");
@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet {
         else {
             request.getRequestDispatcher("/Vue/home.jsp").forward(request, response);
             System.out.println("okkkk");
-        }
+        }*/
     }
 
     @Override
